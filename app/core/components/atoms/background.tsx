@@ -11,6 +11,7 @@ const Background = ({
     isDarkTheme = false,
     blur = false,
     fixed = false,
+    className = "",
 }: {
     children?: React.ReactNode;
     type?: "solid" | "gradient" | "image";
@@ -24,6 +25,7 @@ const Background = ({
     isDarkTheme?: boolean;
     blur?: boolean;
     fixed?: boolean;
+    className?: string;
 }) => {
     const defaultLightColor = "#FFFFFF";
     const defaultDarkColor = "#1F2937";
@@ -71,7 +73,7 @@ const Background = ({
     const overlayColor = isDarkTheme ? "bg-black" : "bg-white";
 
     return (
-        <div className="relative w-full h-full min-h-screen" style={getBackgroundStyle()}>
+        <div className={`relative w-full h-full min-h-screen ${className}`} style={getBackgroundStyle()}>
             {overlay && type === "image" && (
                 <div 
                     className={`absolute inset-0 ${overlayColor}`}

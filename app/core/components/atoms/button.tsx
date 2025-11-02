@@ -7,6 +7,7 @@ const Button = ({
     isDarkTheme=false,
     full=false,
     onClick=()=>{},
+    rounded="full",
 }: {
     title: string;
     type?: "primary" | "secondary" | "cta" | "error";
@@ -16,6 +17,7 @@ const Button = ({
     isDarkTheme?: boolean;
     full?: boolean;
     onClick?: () => void;
+    rounded?: "full" | "lg" | "md" | "sm" | "xs";
 }) => {
     const lightColorStyles = {
         primary: "bg-[#2A9D8F] hover:bg-[#238276]",
@@ -34,7 +36,7 @@ const Button = ({
     const colorStyles = isDarkTheme ? darkColorStyles : lightColorStyles
 
     return (
-        <button className={`flex ${full ? "w-full" : "w-fit"} h-12 ${size} items-${itemsAlign} justify-${justifyContent} gap-2 rounded-full ${colorStyles[type]} px-5 text-background transition-colors`} onClick={onClick}>
+        <button className={`flex ${full ? "w-full" : "w-fit"} h-12 ${size} items-${itemsAlign} justify-${justifyContent} gap-2 rounded-${rounded} ${colorStyles[type]} px-5 text-background transition-colors`} onClick={onClick}>
             {title}
         </button>
     );
